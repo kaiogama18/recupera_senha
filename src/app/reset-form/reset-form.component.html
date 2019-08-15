@@ -1,0 +1,23 @@
+<div class="container">
+  <!-- <h1 *ngIf="userToken$ | async as userToken">
+    {{ userId }}
+  </h1> -->
+  <form class="card" accept-charset="utf-8" (ngSubmit)="resetPassword()" [formGroup]="resetForm">
+    <label class="card-title bg-red">Redefinição de senha</label>
+    <div class="input">
+      <label class="secondary-text">Digite abaixo a nova senha para acesso ao RH Mobi</label>
+      <p class="text-form"><i class="fa fa-lock"></i>Nova senha:</p>
+      <input maxlength="255" size="50" type="password" formControlName="password" />
+    </div>
+    <div class="input">
+      <p class="text-form"><i class="fa fa-lock"></i>Repita a nova senha:</p>
+      <input maxlength="255" size="50" type="password" formControlName="confirmPassword" />
+      <small *ngIf="passwordsDontMatch()" style="color: red;">As senhas inseridas são diferentes</small>
+      <small *ngIf="success" style="color: green;">Sucesso ao redefinir senha</small>
+      <small *ngIf="!success && success !== undefined" style="color: red;">A redefinição falhou</small>
+    </div>
+    <div class="pd-5">
+      <button class="bg-ativo" [ngClass]="{'bg-inativo': showLoader, 'bg-ativo': !showLoader}" type="submit">Redefinir</button>
+    </div>
+  </form>
+</div>

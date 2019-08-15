@@ -1,0 +1,191 @@
+@import "//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,cyrillic";
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
+
+/* You can add global styles to this file, and also import other style files */
+$red-primary: #fc4747;
+$blue-primary-light: #0277bd75;
+$green-primary: #79b760;
+$gray-primary: #333;
+$background-color-main: #d9e0e7;
+$border-color: #d8d8d8;
+$secondary-text: #595959;
+
+@mixin shadow-1 {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+@mixin shadow-2 {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: auto;
+  height: auto;
+  color: white;
+  font-style: normal !important;
+  line-height: normal !important;
+  font-stretch: normal !important;
+  letter-spacing: normal !important;
+  outline-color: transparent !important;
+  grid-template-areas: "card, card-index";
+  background-color: $background-color-main;
+  font-family: "Roboto", "Helvetica Neue, Helvetica, Arial", sans-serif;
+}
+
+.bg-red {
+  background-color: $red-primary !important;
+}
+
+.bg-ativo {
+  background-color: $green-primary !important;
+}
+
+.bg-inativo {
+  color: $gray-primary !important;
+}
+
+.pd-5 {
+  padding: 5%;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $blue-primary-light !important;
+  background: url("assets/img/background.png") round;
+}
+
+.card {
+  background: white;
+  border-radius: 4px;
+  .secondary-text {
+    color: $secondary-text !important;
+  }
+}
+
+.card-title {
+  padding: 3%;
+  display: block;
+  font-size: large;
+  position: relative;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+
+  &:after {
+    content: "";
+    background-image: url(http://simpleicon.com/wp-content/uploads/multy-user.png);
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+    background-position: 152px -16px;
+    opacity: 0.06;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+  }
+}
+
+.input {
+  width: 90%;
+  margin: 14px auto;
+  position: relative;
+
+  .text-form {
+    .fa {
+      margin-right: 1%;
+      color: darken($green-primary, 10%);
+    }
+    color: $gray-primary;
+  }
+
+  span {
+    width: 2vw;
+    display: flex;
+    align-items: center;
+    font-size: 2.5vh;
+    color: darken($green-primary, 10%);
+  }
+}
+
+input {
+  max-width: 100%;
+  border: 0;
+  height: 5vh;
+  width: 100%;
+  outline: none;
+  display: block;
+  padding-left: 1%;
+  color: $border-color;
+  font-family: inherit;
+  line-height: inherit;
+  box-sizing: border-box;
+  background: $border-color;
+  color: $gray-primary !important;
+  border-radius: 4px;
+
+  &:focus {
+    color: $border-color;
+  }
+
+  .two & {
+    color: white;
+
+    &:focus {
+      color: white;
+    }
+  }
+}
+
+button {
+  @include shadow-2();
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 4px;
+  margin: 0;
+  border: none;
+  padding: 2%;
+  transition: all 0.2s ease;
+  outline: 0;
+  cursor: pointer;
+  color: white;
+  overflow: hidden;
+  position: relative;
+
+  &:after {
+    background: white;
+    content: "";
+    height: 154px;
+    left: -74px;
+    opacity: 0.2;
+    position: absolute;
+    top: -50px;
+    transform: rotate(35deg);
+    transition: all 950ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 50px;
+  }
+
+  &:hover {
+    @include shadow-1();
+    border-color: none;
+    background-position: left bottom;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    &:after {
+      left: 120%;
+      transition: all 950ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+
+  &:active {
+    border: 0;
+    transition: all 0.2s ease;
+  }
+}
