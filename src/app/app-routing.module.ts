@@ -3,7 +3,16 @@ import { Routes, RouterModule } from '@angular/router'
 import { ResetFormComponent } from './reset-form/reset-form.component'
 
 const routes: Routes = [
-  { path: ':id', component: ResetFormComponent },
+  {
+    path: 'password',
+    component: ResetFormComponent,
+    children: [
+      {
+        path: ':id',
+        component: ResetFormComponent,
+      }
+    ]
+  },
 ]
 
 @NgModule({
